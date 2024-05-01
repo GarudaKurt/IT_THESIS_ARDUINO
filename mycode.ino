@@ -28,11 +28,6 @@ void scrollText() {
   lcd.setCursor(0, 0);
   
   lcd.print(message.substring(scrollPosition, scrollPosition + 16));
-  
-  lcd.setCursor(0, 1);
-  
-  lcd.print(message.substring(0, scrollPosition));
-  
   scrollPosition++;
   
   if (scrollPosition >= message.length()) {
@@ -42,8 +37,7 @@ void scrollText() {
 
 void loop() {
   // Check if data is available from the barcode reader
-  lcd.setCursor(0,0);
-  lcd.print(scrollText());
+   scrollText()
   if (barcodeReader.available()) {
     // Read the data from the barcode reader
     char receivedChar = barcodeReader.read();
